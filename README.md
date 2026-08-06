@@ -1,15 +1,14 @@
-# Aquanetta Amour — Foody
+# Aquanetta Amour — Where Style Meets Love
 
-Marketing website for Aquanetta Amour's Foody brand: moody cocktail and food
-recipes, brand story, and a newsletter signup.
+Landing page for Aquanetta Amour: wordmark, tagline, brand intro, and an
+email signup for launch updates.
 
 ## Structure
 
 ```
-index.html          Single-page site (hero, about, recipes, gallery, contact)
-assets/css/style.css Styling (dark/wine/neon-glow theme)
-assets/js/script.js  Scroll header, mobile nav, reveal animations, signup form
-assets/img/          Site imagery
+index.html           Landing page (hero, signup form, social links)
+assets/css/style.css Styling (warm neutral/brown brand palette)
+assets/js/script.js  Signup form validation, footer year
 ```
 
 ## Running locally
