@@ -1,16 +1,14 @@
 /* ---------- Design tokens ---------- */
 :root {
-  --bg: #F7EFE9;
-  --ink: #1C120D;
-  --rose: #B35948;
-  --umber: #43281E;
-  --clay: #C7AB8E;
-  --petal: #F1D4C8;
+  --bg: #F3FAFD;
+  --ink: #003152;
+  --accent: #ADDFF1;
+  --pale: #DEF2F9;
 
   --text: var(--ink);
-  --text-muted: #7A6355;
+  --text-muted: #6D8B9F;
+  --focus: var(--ink);
   --surface: var(--bg);
-  --hairline: #E1D2C4;
   --rail-w: 14px;
 
   --font-display: "Big Shoulders Display", sans-serif;
@@ -21,10 +19,9 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --surface: var(--ink);
-    --text: var(--petal);
-    --text-muted: #B79E8E;
-    --hairline: #4A362C;
-    --rose: #D07A62;
+    --text: var(--pale);
+    --text-muted: #5F91A9;
+    --focus: var(--accent);
   }
 }
 
@@ -102,7 +99,7 @@ a { color: inherit; }
   letter-spacing: 0.32em;
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--rose);
+  color: var(--text-muted);
   margin: 0 0 22px;
 }
 
@@ -117,7 +114,7 @@ a { color: inherit; }
   color: var(--text);
   text-wrap: balance;
 }
-.wordmark span { color: var(--rose); }
+.wordmark span { color: var(--text); }
 
 .tagline {
   font-family: var(--font-serif);
@@ -158,6 +155,7 @@ a { color: inherit; }
 }
 .signup-form input::placeholder { color: var(--text-muted); opacity: 0.7; }
 .signup-form input:focus { outline: none; }
+.signup-form input:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
 
 .signup-form button {
   display: inline-flex;
@@ -166,7 +164,7 @@ a { color: inherit; }
   flex-shrink: 0;
   border: none;
   background: none;
-  color: var(--rose);
+  color: var(--text);
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.9rem;
@@ -175,6 +173,7 @@ a { color: inherit; }
   cursor: pointer;
   padding: 4px 0;
 }
+.signup-form button:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
 .signup-form button span {
   transition: transform 0.2s ease;
   display: inline-block;
@@ -184,7 +183,7 @@ a { color: inherit; }
 .form-note {
   min-height: 1.3em;
   font-size: 0.85rem;
-  color: var(--rose);
+  color: var(--text);
   margin: 0 0 44px;
 }
 
@@ -199,14 +198,15 @@ a { color: inherit; }
   border-radius: 50%;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
+.social-row a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 .social-row svg { width: 17px; height: 17px; fill: var(--text); transition: fill 0.2s ease; }
-.social-row a:hover { background: var(--rose); border-color: var(--rose); }
-.social-row a:hover svg { fill: var(--surface); }
+.social-row a:hover { background: var(--accent); border-color: var(--accent); }
+.social-row a:hover svg { fill: var(--ink); }
 
 /* ---------- Manifesto band ---------- */
 .manifesto {
-  background: var(--umber);
-  color: var(--petal);
+  background: var(--ink);
+  color: var(--pale);
   padding: 96px 8vw;
   text-align: center;
 }
@@ -219,7 +219,7 @@ a { color: inherit; }
   margin: 0;
   text-wrap: balance;
 }
-.manifesto-line--accent { color: var(--rose); font-weight: 600; }
+.manifesto-line--accent { color: var(--accent); font-weight: 600; }
 
 /* ---------- Footer ---------- */
 .site-footer {
