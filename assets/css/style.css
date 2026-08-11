@@ -1,0 +1,266 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --bg: #F7EFE9;
+  --ink: #1C120D;
+  --rose: #B35948;
+  --umber: #43281E;
+  --clay: #C7AB8E;
+  --petal: #F1D4C8;
+
+  --text: var(--ink);
+  --text-muted: #7A6355;
+  --surface: var(--bg);
+  --hairline: #E1D2C4;
+  --rail-w: 14px;
+
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-serif: "Fraunces", serif;
+  --font-body: "Archivo", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: var(--ink);
+    --text: var(--petal);
+    --text-muted: #B79E8E;
+    --hairline: #4A362C;
+    --rose: #D07A62;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a { color: inherit; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* ---------- Palette rail: a literal swatch of the brand's own research ---------- */
+.palette-rail {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 8px;
+}
+.palette-rail .swatch {
+  flex: 1;
+  background: var(--c);
+}
+
+@media (min-width: 721px) {
+  .palette-rail {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: var(--rail-w);
+    height: 100vh;
+    flex-direction: column;
+    z-index: 5;
+  }
+  body { padding-right: var(--rail-w); }
+}
+
+/* ---------- Page ---------- */
+.page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 720px) {
+  .page { padding-top: 8px; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px 8vw 80px;
+  max-width: 720px;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--rose);
+  margin: 0 0 22px;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 8vw, 5.2rem);
+  line-height: 0.94;
+  letter-spacing: 0.005em;
+  margin: 0 0 6px;
+  color: var(--text);
+  text-wrap: balance;
+}
+.wordmark span { color: var(--rose); }
+
+.tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  color: var(--text-muted);
+  margin: 0 0 34px;
+}
+
+.intro {
+  font-size: 1rem;
+  max-width: 46ch;
+  color: var(--text-muted);
+  margin: 0 0 40px;
+}
+
+/* ---------- Signup form: an underlined line, not a pill ---------- */
+.signup-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  max-width: 520px;
+  border-bottom: 1.5px solid var(--text);
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.signup-form input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 4px 0;
+}
+.signup-form input::placeholder { color: var(--text-muted); opacity: 0.7; }
+.signup-form input:focus { outline: none; }
+
+.signup-form button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  color: var(--rose);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  padding: 4px 0;
+}
+.signup-form button span {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.signup-form button:hover span { transform: translateX(4px); }
+
+.form-note {
+  min-height: 1.3em;
+  font-size: 0.85rem;
+  color: var(--rose);
+  margin: 0 0 44px;
+}
+
+/* ---------- Social row ---------- */
+.social-row { display: flex; gap: 16px; }
+.social-row a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border: 1.5px solid var(--text);
+  border-radius: 50%;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.social-row svg { width: 17px; height: 17px; fill: var(--text); transition: fill 0.2s ease; }
+.social-row a:hover { background: var(--rose); border-color: var(--rose); }
+.social-row a:hover svg { fill: var(--surface); }
+
+/* ---------- Manifesto band ---------- */
+.manifesto {
+  background: var(--umber);
+  color: var(--petal);
+  padding: 96px 8vw;
+  text-align: center;
+}
+.manifesto-line {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 4.4vw, 2.8rem);
+  line-height: 1.25;
+  margin: 0;
+  text-wrap: balance;
+}
+.manifesto-line--accent { color: var(--rose); font-weight: 600; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 40px 8vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-mark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.copyright {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin: 0;
+}
+
+/* ---------- Motion ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: rise 0.7s cubic-bezier(.16,.8,.24,1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes rise {
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; opacity: 1; transform: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .hero { padding: 64px 7vw 64px; }
+  .signup-form { flex-wrap: wrap; gap: 10px; }
+  .site-footer { flex-direction: column; text-align: center; }
+}
